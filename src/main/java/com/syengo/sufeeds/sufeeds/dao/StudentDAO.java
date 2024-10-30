@@ -8,7 +8,7 @@ import java.sql.*;
 public class StudentDAO {
 
     public boolean register(Student student) {
-        String sql = "INSERT INTO student (name, \"AdmissionNo\", \"Course\", \"Password\") VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO tbl_students (name, \"AdmissionNo\", \"Course\", \"Password\") VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -28,7 +28,7 @@ public class StudentDAO {
     }
 
     public Student login(String admissionNo, String password) {
-        String sql = "SELECT * FROM student WHERE \"AdmissionNo\" = ? AND \"Password\" = ?";
+        String sql = "SELECT * FROM tbl_students WHERE \"AdmissionNo\" = ? AND \"Password\" = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -109,7 +109,7 @@ public class StudentDAO {
         }
     }
 
-    // Method to get all students (useful for admin features if you add them later)
+    // Method to get all students
     public java.util.List<Student> getAllStudents() {
         String sql = "SELECT * FROM student";
         java.util.List<Student> students = new java.util.ArrayList<>();
