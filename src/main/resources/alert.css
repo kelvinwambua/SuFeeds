@@ -1,0 +1,58 @@
+.modern-alert {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.modern-alert:header *.header-panel {
+    -fx-background-color: white;
+}
+
+.modern-alert > *.content.label {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 0 15px 0;
+    -fx-text-fill: #2c3e50;
+    -fx-font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.modern-alert .alert-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 25px;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-width: 0;
+}
+
+.modern-alert .alert-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.modern-alert .alert-button:pressed {
+    -fx-background-color: #2473a5;
+}
+
+
+.modern-alert.dialog-pane.error .content.label {
+    -fx-graphic: url('/assets/warning.png');
+}
+
+.modern-alert.dialog-pane.information .content.label {
+    -fx-graphic: url('/assets/warning.png');
+}
+
+/* Remove default icon */
+.modern-alert > *.graphic {
+    -fx-padding: 0;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+}
+
+/* Dialog window button layout */
+.modern-alert > *.button-bar > *.container {
+    -fx-padding: 10px 0 0 0;
+}

@@ -1,18 +1,20 @@
 package com.syengo.sufeeds.sufeeds.main;
 
-import com.syengo.sufeeds.sufeeds.ui.LoginForm;
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) {
-        LoginForm loginForm = new LoginForm();
-        Scene scene = new Scene(loginForm.getRoot(), 300, 200);
-        primaryStage.setTitle("Student Login");
-        primaryStage.setScene(scene);
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+        Parent root = loader.load();
+
+        primaryStage.setTitle("SU Feeds");
+        primaryStage.setMaximized(true);
+        primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();
     }
 

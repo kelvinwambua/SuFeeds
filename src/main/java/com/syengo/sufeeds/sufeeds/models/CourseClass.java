@@ -9,6 +9,7 @@ public class CourseClass {
     private String description;
     private String dayOfWeek;
     private String timeSlot;
+    public  CourseClass(){}
 
     // Constructor for new classes (without ID)
     public CourseClass(String className, String semester, String studentId, String description,

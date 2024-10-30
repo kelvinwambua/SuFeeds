@@ -13,7 +13,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <junit.version>5.10.2</junit.version>  </properties>
 
+
   <dependencies>
+      <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>42.7.1</version>
+      </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
@@ -96,7 +102,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.syengo.sufeeds.sufeeds/com.syengo.sufeeds.sufeeds.HelloApplication</mainClass>
+              <mainClass>com.syengo.sufeeds.sufeeds/com.syengo.sufeeds.sufeeds.Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

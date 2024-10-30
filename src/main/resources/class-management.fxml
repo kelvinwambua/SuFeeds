@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.ClassManagementController"
+      spacing="10">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <!-- Header -->
+    <VBox alignment="CENTER" spacing="5">
+        <Text fx:id="studentInfoText" style="-fx-font-size: 14;"/>
+        <Separator/>
+    </VBox>
+
+    <!-- Class Management Section -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Class Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="classNameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextArea fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Button text="Add Class" onAction="#showAddClassDialog"
+                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <!-- Class List -->
+    <Label text="Your Classes"/>
+    <ListView fx:id="classListView" VBox.vgrow="ALWAYS"/>
+
+    <!-- Footer -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#returnToDashboard"/>
+    </HBox>
+
+</VBox>
