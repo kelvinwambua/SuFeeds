@@ -24,9 +24,8 @@ I will be using postgres in this case
 
  <h3>Now let us run the queries to create the tables</h3>
  - Right click on the database you created and click Query Tool,something should appear on the right
-   ![Alt text](image4.png)
-
-     - Paste the following SQL command and place the cursor at the beginning of them then run the SQL(Make Sure your cursor is at the beginning)
+ ![Alt text](image4.png)
+- Paste the following SQL command and place the cursor at the beginning of them then run the SQL(Make Sure your cursor is at the beginning)
 
         ```SQL
        CREATE TABLE tbl_student (
