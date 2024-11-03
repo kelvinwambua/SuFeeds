@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File not in use-->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.PostController"
+      spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10">
+        <Label text="Topic:"/>
+        <TextField fx:id="topicField" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Text:"/>
+        <TextArea fx:id="textArea" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <Button text="Create Post" fx:id="createPostButton" onAction="#handleCreatePost"/>
+
+    <TableView fx:id="postsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="postIdColumn" text="Post ID" prefWidth="100"/>
+            <TableColumn fx:id="topicColumn" text="Topic" prefWidth="150"/>
+            <TableColumn fx:id="textColumn" text="Text" prefWidth="300"/>
+            <TableColumn fx:id="commentsColumn" text="Comments" prefWidth="100"/>
+            <TableColumn fx:id="likesColumn" text="Likes" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+</VBox>

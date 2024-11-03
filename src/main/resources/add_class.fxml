@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.AddClassController"
+      stylesheets=" @add_class.css"
+      styleClass="dialog-container">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <!-- Header Section -->
+    <VBox spacing="8" alignment="CENTER">
+        <Text text="Add New Class" styleClass="heading-text"/>
+        <Text text="Join a new class to start participating" styleClass="subheading-text"/>
+    </VBox>
+
+    <!-- Class Name Input Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label text="Class Name" styleClass="input-label"/>
+        <TextField fx:id="classNameField"
+                   promptText="Enter the class name"
+                   styleClass="input-field"/>
+    </VBox>
+
+    <!-- Semester Selection Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label text="Semester" styleClass="input-label"/>
+        <ComboBox fx:id="semesterComboBox"
+                  promptText="Select semester"
+                  styleClass="input-field"
+                  maxWidth="Infinity"/>
+    </VBox>
+
+    <!-- Error Message -->
+    <Label fx:id="errorLabel"
+           styleClass="error-label"
+           visible="false"
+           wrapText="true"/>
+
+    <!-- Action Buttons -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Cancel"
+                onAction="#handleCancel"
+                styleClass="secondary-button"/>
+        <Button text="Add Class"
+                onAction="#handleSave"
+                styleClass="primary-button"/>
+    </HBox>
+
+</VBox>

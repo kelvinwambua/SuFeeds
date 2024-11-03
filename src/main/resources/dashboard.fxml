@@ -1,162 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 
-<HBox fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.DashboardController"
-      xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.DashboardController"
       styleClass="dashboard-container">
 
     <!-- Left Sidebar -->
-    <VBox styleClass="sidebar" prefWidth="250">
+    <VBox styleClass="sidebar">
+        <padding>
+            <Insets top="20" right="15" bottom="20" left="20"/>
+        </padding>
+
         <!-- App Logo -->
-        <HBox styleClass="logo-container">
-            <ImageView fitHeight="40" fitWidth="40">
-                <Image url="@assets/warning.png"/>
-            </ImageView>
-            <Text text="SU Feeds" styleClass="app-title"/>
-        </HBox>
+        <Label text="SuFeeds" styleClass="app-logo"/>
 
-        <!-- Navigation Items -->
-        <VBox spacing="8" styleClass="nav-items">
-            <Button styleClass="nav-button, active-nav-button" onAction="#switchToHome">
+        <!-- Navigation Menu -->
+        <VBox styleClass="nav-menu" spacing="10">
+            <padding>
+                <Insets top="30"/>
+            </padding>
+
+            <Button text="Home" onAction="#showHome" styleClass="nav-item, active-nav-item">
                 <graphic>
-                    <HBox spacing="15" alignment="CENTER_LEFT">
-                        <ImageView styleClass="nav-icon" fitHeight="24" fitWidth="24">
-                            <Image url="@assets/home.png"/>
-                        </ImageView>
-                        <Text text="Home" styleClass="nav-text"/>
-                    </HBox>
+                    <FontAwesomeIconView glyphName="HOME" size="24" styleClass="nav-icon" fill="#243461"/>
                 </graphic>
             </Button>
 
-            <Button styleClass="nav-button" onAction="#switchToActivity">
+            <Button text="Classes" onAction="#showClasses" styleClass="nav-item">
                 <graphic>
-                    <HBox spacing="15" alignment="CENTER_LEFT">
-                        <ImageView styleClass="nav-icon" fitHeight="24" fitWidth="24">
-                            <Image url="@assets/pending.png"/>
-                        </ImageView>
-                        <Text text="Recent Activity" styleClass="nav-text"/>
-                    </HBox>
+                    <FontAwesomeIconView glyphName="BOOK" size="24" styleClass="nav-icon" fill="#243461"/>
                 </graphic>
             </Button>
 
-            <Button styleClass="nav-button" onAction="#switchToClasses">
+            <Button text="New Post" onAction="#showNewPost" styleClass="nav-item">
                 <graphic>
-                    <HBox spacing="15" alignment="CENTER_LEFT">
-                        <ImageView styleClass="nav-icon" fitHeight="24" fitWidth="24">
-                            <Image url="@assets/book-open-cover.png"/>
-                        </ImageView>
-                        <Text text="Classes" styleClass="nav-text"/>
-                    </HBox>
+                    <FontAwesomeIconView glyphName="PLUS_CIRCLE" size="24" styleClass="nav-icon" fill="#243461"/>
                 </graphic>
             </Button>
 
-            <Button styleClass="nav-button" onAction="#switchToTopics">
+            <Button text="Profile" onAction="#showProfile" styleClass="nav-item">
                 <graphic>
-                    <HBox spacing="15" alignment="CENTER_LEFT">
-                        <ImageView styleClass="nav-icon" fitHeight="24" fitWidth="24">
-                            <Image url="@assets/hashtag.png"/>
-                        </ImageView>
-                        <Text text="Topics" styleClass="nav-text"/>
-                    </HBox>
+                    <FontAwesomeIconView glyphName="USER" size="24" styleClass="nav-icon" fill="#243461"/>
                 </graphic>
             </Button>
-
-            <Button styleClass="nav-button" onAction="#switchToProfile">
-                <graphic>
-                    <HBox spacing="15" alignment="CENTER_LEFT">
-                        <ImageView styleClass="nav-icon" fitHeight="24" fitWidth="24">
-                            <Image url="@assets/circle-user.png"/>
-                        </ImageView>
-                        <Text text="Profile" styleClass="nav-text"/>
-                    </HBox>
-                </graphic>
-            </Button>
-
-            <Button styleClass="post-button" text="New Post"/>
         </VBox>
 
-        <!-- Profile Preview -->
         <Region VBox.vgrow="ALWAYS"/>
-        <HBox styleClass="profile-preview">
-            <ImageView fitHeight="40" fitWidth="40">
-                <Image url="@assets/warning.png"/>
-            </ImageView>
-            <VBox>
-                <Text fx:id="userNameText" styleClass="user-name"/>
-                <Text fx:id="userAdmissionText" styleClass="user-admission"/>
-            </VBox>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button styleClass="logout-button" text="Logout" onAction="#logout"/>
-        </HBox>
+
+        <!-- Profile Section -->
+        <VBox styleClass="profile-section">
+            <HBox styleClass="profile-info" spacing="10">
+                <FontAwesomeIconView glyphName="USER_CIRCLE" size="32" styleClass="nav-icon" fill="#243461"/>
+
+                <VBox spacing="2">
+                    <Label fx:id="userNameLabel" styleClass="profile-name"/>
+                    <Label fx:id="userEmailLabel" styleClass="profile-handle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="Logout" onAction="#handleLogout" styleClass="logout-button">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="SIGN_OUT" size="12" styleClass="nav-icon" fill="#243461"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
     </VBox>
 
     <!-- Main Content Area -->
-    <StackPane fx:id="contentArea" HBox.hgrow="ALWAYS">
-        <!-- Home Feed -->
-        <ScrollPane fx:id="homeFeed" fitToWidth="true" styleClass="content-scroll">
-            <VBox spacing="15" styleClass="feed-container">
-                <!-- Post Template -->
-                <VBox styleClass="post">
-                    <HBox styleClass="post-header">
-                        <VBox>
-                            <Text styleClass="post-author" text="John Doe"/>
-                            <Text styleClass="post-meta" text="BSc. Computer Science • 2 hours ago"/>
-                        </VBox>
-                    </HBox>
-                    <Text styleClass="post-content" text="This is a sample post content..."/>
-                    <HBox styleClass="post-actions">
-                        <Button styleClass="action-button" text="Like"/>
-                        <Button styleClass="action-button" text="Comment"/>
-                        <Button styleClass="action-button" text="Share"/>
-                    </HBox>
-                </VBox>
+    <StackPane HBox.hgrow="ALWAYS" styleClass="main-content">
+        <!-- Home View -->
+        <VBox fx:id="homeView" styleClass="content-view">
+            <HBox styleClass="content-header">
+                <Label text="Home" styleClass="page-title"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="feed-scroll">
+                <VBox fx:id="globalFeedContainer" styleClass="feed-container"/>
+            </ScrollPane>
+        </VBox>
+
+        <!-- Classes View -->
+        <VBox fx:id="classesView" styleClass="content-view" visible="false">
+            <HBox styleClass="content-header">
+                <Label text="My Classes" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Add Class" onAction="#handleAddClass"
+                        styleClass="primary-button, add-class-button">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="16" styleClass="nav-icon" fill="white"/>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <VBox styleClass="class-list-container" VBox.vgrow="ALWAYS">
+                <ListView fx:id="classListView" VBox.vgrow="ALWAYS" styleClass="modern-class-list"/>
+
+                <HBox styleClass="class-actions" spacing="10">
+                    <Button text="Edit Class" onAction="#handleEditClass"
+                            styleClass="secondary-button">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="EDIT" size="16" styleClass="nav-icon" fill="#243461"/>
+                        </graphic>
+                    </Button>
+                    <Button text="Delete Class" onAction="#handleDeleteClass"
+                            styleClass="danger-button">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="TRASH" size="16" styleClass="nav-icon" fill="red"/>
+                        </graphic>
+                    </Button>
+                </HBox>
             </VBox>
-        </ScrollPane>
-
-        <!-- Recent Activity Content -->
-        <VBox fx:id="activityContent" spacing="15" visible="false">
-            <Label text="Recent Activity" styleClass="section-title"/>
-            <TextArea fx:id="activityLog"
-                      editable="false"
-                      wrapText="true"
-                      prefRowCount="20"
-                      styleClass="activity-log"/>
-            <Button text="Clear Log" onAction="#clearActivityLog"/>
         </VBox>
 
-        <!-- Classes Content -->
-        <VBox fx:id="classesContent" spacing="15" visible="false">
-            <Button text="Add New Class" onAction="#showClassManagement"/>
-            <Label text="Your Classes" styleClass="section-title"/>
-            <ListView fx:id="classList" VBox.vgrow="ALWAYS"/>
-            <Button text="Refresh Classes" onAction="#refreshClasses"/>
+        <!-- New Post View -->
+        <VBox fx:id="newPostView" styleClass="content-view" visible="false">
+            <HBox styleClass="content-header">
+                <Label text="Create Post" styleClass="page-title"/>
+            </HBox>
+
+            <VBox styleClass="post-form">
+                <ComboBox fx:id="classSelector" promptText="Select Class" styleClass="class-selector"/>
+                <ComboBox fx:id="weekComboBox" promptText="Select Week" styleClass="week-selector"/>
+                <TextField fx:id="postTopic" promptText="Topic" styleClass="post-input"/>
+                <TextArea fx:id="postContent" promptText="What's on your mind?" styleClass="post-input"/>
+                <Button text="Post" onAction="#handleAddPost" styleClass="primary-button">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PAPER_PLANE" size="16" styleClass="nav-icon" fill="white"/>
+                    </graphic>
+                </Button>
+            </VBox>
         </VBox>
 
-        <!-- Topics Content -->
-        <VBox fx:id="topicsContent" spacing="15" visible="false">
-            <ComboBox fx:id="classSelector" promptText="Select a class"/>
-            <Button text="Add New Topic" onAction="#showAddTopicDialog"/>
-            <Label text="Topics" styleClass="section-title"/>
-            <ListView fx:id="topicsList" VBox.vgrow="ALWAYS"/>
-        </VBox>
+        <!-- Profile View -->
+        <VBox fx:id="profileView" styleClass="content-view" visible="false">
+            <HBox styleClass="content-header">
+                <Label text="Profile" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Edit Profile" onAction="#handleEditProfile" styleClass="edit-profile-btn">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="EDIT" size="16" styleClass="nav-icon" fill="#243461"/>
+                    </graphic>
+                </Button>
+            </HBox>
 
-        <!-- Profile Content -->
-        <VBox fx:id="profileContent" spacing="15" visible="false">
-            <GridPane fx:id="profileGrid" hgap="10.0" vgap="10.0">
-                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <Text fx:id="nameText" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Label text="Admission No:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <Text fx:id="admissionText" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Label text="Course:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <Text fx:id="courseText" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            </GridPane>
-            <Button text="Edit Profile" onAction="#showEditProfileDialog"/>
-            <Button text="Change Password" onAction="#showChangePasswordDialog"/>
+            <VBox styleClass="profile-info-container" spacing="10">
+                <Label text="Full Name:" styleClass="profile-label"/>
+                <Label fx:id="profileNameLabel" styleClass="profile-value"/>
+
+                <Label text="Email:" styleClass="profile-label"/>
+                <Label fx:id="profileEmailLabel" styleClass="profile-value"/>
+
+                <Label text="Student ID:" styleClass="profile-label"/>
+                <Label fx:id="profileStudentIdLabel" styleClass="profile-value"/>
+            </VBox>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="feed-scroll">
+                <VBox fx:id="userPostsContainer" styleClass="feed-container">
+                    <Label text="Your Posts" styleClass="section-title"/>
+                    <VBox fx:id="profilePostsContainer" styleClass="posts-container"/>
+                </VBox>
+            </ScrollPane>
         </VBox>
     </StackPane>
 </HBox>

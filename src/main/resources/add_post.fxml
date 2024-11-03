@@ -1,0 +1,86 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this file is not in Use -->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox spacing="20" styleClass="dialog-container"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.AddPostController">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <!-- Header Section -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <ImageView fitHeight="32" fitWidth="32">
+            <Image url="@assets/warning.png"/>
+        </ImageView>
+        <Text styleClass="dialog-header" text="Create New Post"/>
+    </HBox>
+
+    <!-- Post Context Section -->
+    <HBox spacing="15">
+        <ComboBox fx:id="classSelector" promptText="Select Class"
+                  styleClass="context-selector" prefWidth="200"/>
+        <ComboBox fx:id="weekSelector" promptText="Week"
+                  styleClass="context-selector" prefWidth="120"/>
+    </HBox>
+
+    <!-- Topic Section -->
+    <VBox spacing="8">
+        <Label text="Topic" styleClass="input-label"/>
+        <TextField fx:id="topicField" promptText="Write a descriptive topic..."
+                   styleClass="input-field"/>
+    </VBox>
+
+    <!-- Content Section -->
+    <VBox spacing="8" VBox.vgrow="ALWAYS">
+        <Label text="Content" styleClass="input-label"/>
+        <TextArea fx:id="contentArea"
+                  promptText="Share your thoughts, questions, or insights..."
+                  wrapText="true"
+                  prefRowCount="8"
+                  styleClass="content-area"/>
+    </VBox>
+
+    <!-- Attachment Section (Optional) -->
+    <HBox styleClass="attachment-section" spacing="10">
+        <Button styleClass="attachment-button">
+            <graphic>
+            <ImageView fitHeight="20" fitWidth="20">
+                <Image url="@assets/warning.png"/>
+            </ImageView>
+        </Button>
+        <Button styleClass="attachment-button">
+            <graphic>
+            <ImageView fitHeight="20" fitWidth="20">
+                <Image url="@assets/warning.png"/>
+            </ImageView>
+        </Button>
+        <Label text="Add attachments (optional)" styleClass="helper-text"/>
+    </HBox>
+
+    <!-- Error Message -->
+    <Label fx:id="errorLabel" styleClass="error-label" visible="false"
+           wrapText="true"/>
+
+    <!-- Action Buttons -->
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"
+                styleClass="secondary-button"/>
+        <Button text="Post" onAction="#handlePost"
+                styleClass="primary-button">
+            <graphic>
+            <ImageView fitHeight="16" fitWidth="16">
+                <Image url="@assets/warning.png"/>
+            </ImageView>
+        </Button>
+    </HBox>
+
+</VBox>

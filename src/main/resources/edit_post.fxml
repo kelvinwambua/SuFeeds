@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.EditPostController"
+      stylesheets="@add_class.css"
+      styleClass="dialog-container">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <!-- Header Section -->
+    <VBox spacing="8" alignment="CENTER">
+        <Text text="Edit Post" styleClass="heading-text"/>
+        <Text text="Update your post details" styleClass="subheading-text"/>
+    </VBox>
+
+    <!-- Class Info Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label fx:id="classInfoLabel" styleClass="input-label"/>
+    </VBox>
+
+    <!-- Week Selection Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label text="Week" styleClass="input-label"/>
+        <ComboBox fx:id="weekComboBox"
+                  promptText="Select week"
+                  styleClass="input-field"
+                  maxWidth="Infinity"/>
+    </VBox>
+
+    <!-- Topic Input Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label text="Topic" styleClass="input-label"/>
+        <TextField fx:id="topicField"
+                   promptText="Enter the topic"
+                   styleClass="input-field"/>
+    </VBox>
+
+    <!-- Content Input Section -->
+    <VBox spacing="5" styleClass="form-group">
+        <Label text="Content" styleClass="input-label"/>
+        <TextArea fx:id="contentArea"
+                  promptText="Enter your content"
+                  wrapText="true"
+                  prefRowCount="5"
+                  styleClass="input-field"/>
+    </VBox>
+
+    <!-- Error Message -->
+    <Label fx:id="errorLabel"
+           styleClass="error-label"
+           visible="false"
+           wrapText="true"/>
+
+    <!-- Action Buttons -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Cancel"
+                onAction="#handleCancel"
+                styleClass="secondary-button"/>
+        <Button text="Save Changes"
+                onAction="#handleSave"
+                styleClass="primary-button"/>
+    </HBox>
+
+</VBox>

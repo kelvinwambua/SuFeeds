@@ -1,0 +1,127 @@
+
+.dialog-container {
+    -fx-background-color: white;
+    -fx-min-width: 400px;
+    -fx-max-width: 400px;
+}
+
+
+.heading-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #243461;
+}
+
+.subheading-text {
+    -fx-font-size: 14px;
+    -fx-fill: #666666;
+}
+
+.form-group {
+    -fx-spacing: 8;
+    -fx-min-width: 320px;
+}
+
+
+.input-field {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 8px;
+    -fx-border-width: 0;
+    -fx-padding: 12px 16px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #999999;
+}
+
+.input-field:focused {
+    -fx-background-color: #eef5ff;
+    -fx-border-color: #243461;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.combo-box {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 8px;
+    -fx-border-width: 0;
+}
+
+.combo-box:focused {
+    -fx-background-color: #eef5ff;
+    -fx-border-color: #243461;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-padding: 8px 12px;
+}
+
+.combo-box .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #f5f5f5;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 2);
+}
+
+.combo-box .list-view .list-cell:hover {
+    -fx-background-color: #f8f9fa;
+}
+
+.combo-box .list-view .list-cell:selected {
+    -fx-background-color: #eef5ff;
+    -fx-text-fill: #243461;
+}
+
+.input-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #243461;
+    -fx-font-weight: bold;
+}
+
+.error-label {
+    -fx-text-fill: #ff4444;
+    -fx-font-size: 12px;
+    -fx-padding: 4px 0;
+}
+
+.primary-button {
+    -fx-background-color: #243461;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-width: 120px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1a2647;
+}
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-text-fill: #243461;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 24px;
+    -fx-border-color: #243461;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-width: 120px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #eef5ff;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #243461;
+}

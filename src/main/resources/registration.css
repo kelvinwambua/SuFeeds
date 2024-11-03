@@ -1,89 +1,52 @@
-.main-container {
-    -fx-background-color: white;
-}
 
-.login-container {
+/* File no longer in use, I just used the login styles in registration for consistency  */
+.registration-side {
     -fx-background-color: white;
     -fx-alignment: center;
     -fx-min-width: 500px;
 }
 
-.image-container {
-    -fx-background-color: #f5f5f5;
-}
-
-.login-form {
-    -fx-background-color: white;
-    -fx-spacing: 25;
-}
-
-.welcome-text {
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #243461;
-}
-
-.subtitle-text {
-    -fx-font-size: 16px;
-    -fx-text-fill: #666666;
-    -fx-padding: 0 0 20 0;
-}
-
-.field-label {
-    -fx-font-size: 14px;
-    -fx-text-fill: #243461;
-    -fx-font-weight: bold;
-}
-
-.text-field, .password-field {
-    -fx-background-color: #f5f5f5;
-    -fx-background-radius: 8px;
-    -fx-border-width: 0;
-    -fx-padding: 12px 16px;
-    -fx-font-size: 14px;
-    -fx-prompt-text-fill: #999999;
-    -fx-margin-bottom: 20px;
+.error-label {
+    -fx-text-fill: #dc3545;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 0;
+    -fx-wrap-text: true;
+    -fx-pref-width: 320px;
+    -fx-alignment: center;
 }
 
 
-.text-field:focused, .password-field:focused {
-    -fx-background-color: #eef5ff;
-    -fx-border-color: #243461;
-    -fx-border-width: 1px;
-    -fx-border-radius: 8px;
-
+.form-group {
+    -fx-spacing: 8;
+    -fx-padding: 0 0 10 0;
 }
 
-.login-button {
-    -fx-background-color: #243461;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-padding: 12px 0;
-    -fx-background-radius: 8px;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
+.login-section {
+    -fx-spacing: 4;
+    -fx-alignment: center;
+    -fx-padding: 10 0 0 0;
+}
+
+
+.primary-button {
     -fx-min-width: 320px;
-    -fx-margin-top:10px;
 }
 
-.login-button:hover {
-    -fx-background-color: #1a2647;
-}
-
-#registerButton {
+.secondary-button {
     -fx-background-color: transparent;
     -fx-text-fill: #243461;
     -fx-font-weight: bold;
-    -fx-padding: 12px 0;
-    -fx-border-color: #243461;
-    -fx-border-width: 1px;
-    -fx-border-radius: 8px;
-    -fx-background-radius: 8px;
-    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
     -fx-cursor: hand;
-    -fx-min-width: 320px;
 }
 
-#registerButton:hover {
-    -fx-background-color: #f5f5f5;
+.secondary-button:hover {
+    -fx-underline: true;
+}
+
+
+.copyright-text {
+    -fx-font-size: 12px;
+    -fx-fill: #666666;
+    -fx-text-alignment: center;
 }

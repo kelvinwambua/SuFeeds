@@ -1,68 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
+
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<HBox fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.RegistrationController"
-      xmlns:fx="http://javafx.com/fxml"
-      styleClass="main-container">
-    <VBox styleClass="registration-container" HBox.hgrow="ALWAYS">
-        <GridPane alignment="CENTER"
-                  styleClass="registration-form"
-                  maxWidth="400">
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.RegistrationController"
+      styleClass="container">
+
+    <VBox styleClass="registration-side" HBox.hgrow="ALWAYS">
+        <GridPane styleClass="form-container" alignment="CENTER" maxWidth="400">
             <padding>
                 <Insets top="20" right="40" bottom="20" left="40"/>
             </padding>
 
-            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <Label text="SuFeeds" styleClass="welcome-text"/>
-                <Label text="Sign up to continue" styleClass="subtitle-text"/>
+            <!-- Logo and Header -->
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="header-section">
+                <ImageView fitHeight="40" fitWidth="40">
+                    <Image url="@assets/logo.png"/>
+                </ImageView>
+                <Label text="Create Account" styleClass="heading-text"/>
+                <Label text="Join SU Feeds today" styleClass="subheading-text"/>
             </VBox>
 
-            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <Label text="Full Name:" styleClass="field-label"/>
-                <TextField fx:id="nameField" promptText="Enter your Full Name"/>
+            <!-- Form Fields -->
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-group">
+                <Label text="Full Name:" styleClass="input-label"/>
+                <TextField fx:id="fullNameField" promptText="Enter your full name" styleClass="input-field"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <Label text="Admission No:" styleClass="field-label"/>
-                <TextField fx:id="admissionField"
-                           promptText="Enter your admission number"/>
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-group">
+                <Label text="Email:" styleClass="input-label"/>
+                <TextField fx:id="emailField" promptText="Enter your email" styleClass="input-field"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                <Label text="Course:" styleClass="field-label"/>
-                <TextField fx:id="courseField"
-                           promptText="Enter your course"/>
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-group">
+                <Label text="Password:" styleClass="input-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="input-field"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                <Label text="Password:" styleClass="field-label"/>
-                <PasswordField fx:id="passwordField"
-                               promptText="Enter your password"/>
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="form-group">
+                <Label text="Confirm Password:" styleClass="input-label"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password" styleClass="input-field"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="5">
-                <Label text="Confirm Password:" styleClass="field-label"/>
-                <PasswordField fx:id="confirmPasswordField"
-                               promptText="Re-enter your password"/>
-            </VBox>
+            <!-- Error Label -->
+            <Label fx:id="errorLabel" styleClass="error-label" visible="false"
+                   GridPane.columnIndex="0" GridPane.rowIndex="5"/>
 
-            <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="6">
+            <!-- Buttons -->
+            <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="button-section">
                 <padding>
-                    <Insets top="20" />
+                    <Insets top="20"/>
                 </padding>
-                <Button text="Sign Up" onAction="#handleRegistration"
-                        styleClass="login-button"/>
-                <Button text="Back to Login" onAction="#showLoginForm"
-                        fx:id="registerButton"/>
+                <Button text="Create Account" onAction="#handleRegister" styleClass="primary-button"/>
+
+                <HBox spacing="4" alignment="CENTER" styleClass="login-section">
+                    <Label text="Already have an account?" styleClass="text-regular"/>
+                    <Button text="Sign in" onAction="#handleBackToLogin" styleClass="link-button"/>
+                </HBox>
             </VBox>
         </GridPane>
     </VBox>
 
-    <StackPane styleClass="image-container" HBox.hgrow="ALWAYS">
+    <StackPane styleClass="image-side" HBox.hgrow="ALWAYS">
+        <padding>
+            <Insets left="50"/>
+        </padding>
         <ImageView fitWidth="800" fitHeight="600" preserveRatio="true">
             <Image url="@assets/loginimage.png"/>
         </ImageView>

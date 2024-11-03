@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
 
 <HBox fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.LoginController"
       xmlns:fx="http://javafx.com/fxml"
-      styleClass="main-container">
-    <VBox styleClass="login-container" HBox.hgrow="ALWAYS">
+      styleClass="container"
+      stylesheets="@login.css">
+
+    <VBox styleClass="login-side" HBox.hgrow="ALWAYS">
         <GridPane alignment="CENTER"
                   styleClass="login-form"
                   maxWidth="400">
@@ -16,36 +18,60 @@
                 <Insets top="20" right="40" bottom="20" left="40"/>
             </padding>
 
-            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <Label text="Welcome Back" styleClass="welcome-text"/>
-                <Label text="Sign in to continue" styleClass="subtitle-text"/>
+            <!-- Logo and Welcome -->
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="header-section">
+                <ImageView fitHeight="40" fitWidth="40">
+                    <Image url="@assets/logo.png"/>
+                </ImageView>
+                <Label text="Sign in to SU Feeds" styleClass="heading-text"/>
+                <Label text="Access your account" styleClass="subheading-text"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <Label text="Admission No:" styleClass="field-label"/>
-                <TextField fx:id="admissionField"
-                           promptText="Enter your admission number"/>
+            <!-- Email Field -->
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-group">
+                <Label text="Email:" styleClass="input-label"/>
+                <TextField fx:id="emailField"
+                           styleClass="input-field"
+                           promptText="Enter your email"/>
             </VBox>
 
-            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <Label text="Password:" styleClass="field-label"/>
+            <!-- Password Field -->
+            <VBox spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-group">
+                <Label text="Password:" styleClass="input-label"/>
                 <PasswordField fx:id="passwordField"
+                               styleClass="input-field"
                                promptText="Enter your password"/>
             </VBox>
 
-            <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <!-- Error Label -->
+            <Label fx:id="errorLabel"
+                   styleClass="error-label"
+                   visible="false"
+                   wrapText="true"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="3"/>
+
+            <!-- Buttons -->
+            <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="button-section">
                 <padding>
-                    <Insets top="20" />
+                    <Insets top="20"/>
                 </padding>
-                <Button text="Sign In" onAction="#handleLogin"
-                        styleClass="login-button"/>
-                <Button text="Create Account" onAction="#showRegisterForm"
-                        fx:id="registerButton"/>
+                <Button text="Sign In"
+                        onAction="#handleLogin"
+                        styleClass="primary-button"/>
+
+                <HBox spacing="4" alignment="CENTER" styleClass="signup-section">
+                    <Label text="Don't have an account?" styleClass="text-regular"/>
+                    <Button text="Sign up" onAction="#handleRegisterNavigation" styleClass="link-button"/>
+                </HBox>
             </VBox>
         </GridPane>
     </VBox>
 
-    <StackPane styleClass="image-container" HBox.hgrow="ALWAYS">
+    <StackPane styleClass="image-side" HBox.hgrow="ALWAYS">
+        <padding>
+            <Insets left="50"/>
+        </padding>
         <ImageView fitWidth="800" fitHeight="600" preserveRatio="true">
             <Image url="@assets/loginimage.png"/>
         </ImageView>

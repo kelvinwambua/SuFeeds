@@ -20,6 +20,16 @@
           <artifactId>postgresql</artifactId>
           <version>42.7.1</version>
       </dependency>
+      <dependency>
+          <groupId>de.jensd</groupId>
+          <artifactId>fontawesomefx-commons</artifactId>
+          <version>9.1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>de.jensd</groupId>
+          <artifactId>fontawesomefx-fontawesome</artifactId>
+          <version>4.7.0-9.1.2</version>
+      </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
@@ -35,6 +45,11 @@
       <artifactId>javafx-web</artifactId>
       <version>22.0.1</version>
     </dependency>
+      <dependency>
+          <groupId>de.jensd</groupId>
+          <artifactId>fontawesomefx-fontawesome</artifactId>
+          <version>4.7.0-9.1.2</version>
+      </dependency>
       <dependency>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-swing</artifactId>
@@ -83,6 +98,7 @@
     </dependency>  </dependencies>
 
   <build>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -115,4 +131,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

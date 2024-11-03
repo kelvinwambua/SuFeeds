@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.syengo.sufeeds.sufeeds.ui.controllers.EditClassController"
+      spacing="15" styleClass="form-container">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Edit Class" styleClass="form-header"/>
+
+    <TextField fx:id="classNameField" promptText="Class Name"/>
+    <TextField fx:id="semesterField" promptText="Semester"/>
+
+    <HBox spacing="10">
+        <Button text="Save Changes" onAction="#handleSave" styleClass="primary-button"/>
+        <Button text="Cancel" onAction="#handleCancel" styleClass="secondary-button"/>
+    </HBox>
+</VBox>

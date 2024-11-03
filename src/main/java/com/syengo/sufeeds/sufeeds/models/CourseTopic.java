@@ -1,4 +1,4 @@
-// Topic.java
+// Old Architecture, Ignore this file
 package com.syengo.sufeeds.sufeeds.models;
 
 import java.sql.Timestamp;

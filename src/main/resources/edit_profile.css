@@ -1,0 +1,90 @@
+.form-container {
+    -fx-background-color: white;
+    -fx-min-width: 400px;
+    -fx-max-width: 400px;
+    -fx-alignment: center;
+    -fx-padding: 20px;
+}
+
+.form-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #243461;
+    -fx-padding: 0 0 20 0;
+}
+
+/* Text fields and Password fields */
+TextField, PasswordField {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 8px;
+    -fx-border-width: 0;
+    -fx-padding: 12px 16px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #999999;
+    -fx-min-width: 320px;
+    -fx-margin-bottom: 10px;
+}
+
+TextField:focused, PasswordField:focused {
+    -fx-background-color: #eef5ff;
+    -fx-border-color: #243461;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+/* Button styles */
+.primary-button {
+    -fx-background-color: #243461;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-min-width: 120px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1a2647;
+}
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-text-fill: #243461;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-color: #243461;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-min-width: 120px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #eef5ff;
+}
+
+
+HBox {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 20 0 0 0;
+}
+
+VBox {
+    -fx-spacing: 15;
+}
+
+.error-field {
+    -fx-border-color: #ff4444;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.error-text {
+    -fx-text-fill: #ff4444;
+    -fx-font-size: 12px;
+    -fx-padding: 4 0 0 0;
+}
