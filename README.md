@@ -9,7 +9,8 @@ I will be using postgres in this case
 - Go to  [Here](https://www.postgresql.org/download/)
 - Download Postgres for your operating system
 - Open the executable file and click accept the defaults for everything except in this 1 page
-- ![[module_selection.png]]
+![Drivers](image1.png)
+
 
  - In this one open Database Drivers and select JDBC
 <h1>Step 2: Run the Postgres SQL for creating the tables</h1>
@@ -18,35 +19,30 @@ I will be using postgres in this case
 - Continue opening the dropdowns until you get to one called Databases(0)
 - Right click on it and select create then name your database
 
-![[Pasted image 20241103212259.png]]
+![Create Database](image2.png)
+
 
  <h3>Now let us run the queries to create the tables</h3>
  - Right click on the database you created and click Query Tool,something should appear on the right
-    ![[Pasted image 20241103212410.png]]
-   - Paste the following SQL command and place the cursor at the beginning of them then run the SQL(Make Sure your cursor is at the beginning)
+   ![Alt text](image4.png)
+
+     - Paste the following SQL command and place the cursor at the beginning of them then run the SQL(Make Sure your cursor is at the beginning)
 
         ```SQL
-
--- Create student table
-CREATE TABLE tbl_student (
+       CREATE TABLE tbl_student (
                              student_id SERIAL PRIMARY KEY,
                              full_name VARCHAR(100) NOT NULL,
                              email VARCHAR(100) UNIQUE NOT NULL,
                              password VARCHAR(100) NOT NULL,
-                             registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create class table
-CREATE TABLE tbl_class (
+                             registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+       CREATE TABLE tbl_class (
                            class_id SERIAL PRIMARY KEY,
                            student_id INTEGER REFERENCES tbl_student(student_id),
                            class_name VARCHAR(100) NOT NULL,
                            semester VARCHAR(20) NOT NULL,
                            UNIQUE(student_id, class_name, semester)
-);
-
--- Create post table
-CREATE TABLE tbl_post (
+       );
+       CREATE TABLE tbl_post (
                           post_id SERIAL PRIMARY KEY,
                           student_id INTEGER REFERENCES tbl_student(student_id),
                           class_id INTEGER REFERENCES tbl_class(class_id),
@@ -54,16 +50,15 @@ CREATE TABLE tbl_post (
                           topic VARCHAR(200) NOT NULL,
                           content TEXT NOT NULL,
                           post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Add some indexes for better performance
-CREATE INDEX idx_student_email ON tbl_student(email);
-CREATE INDEX idx_post_class ON tbl_post(class_id);
-CREATE INDEX idx_post_student ON tbl_post(student_id);
+       );
+       CREATE INDEX idx_student_email ON tbl_student(email);
+       CREATE INDEX idx_post_class ON tbl_post(class_id);
+       CREATE INDEX idx_post_student ON tbl_post(student_id);
 
         ```
 
-![[Pasted image 20241103212848.png]]
+![SQL](image5.png)
+
 
 Now we are done with the database stuff
 Let us move to Intellij
@@ -72,18 +67,23 @@ Let us move to Intellij
 I am using the ultimate edition of the IDE so it will have some extra things but it is mostly the same
 - Create a new Project
 - Choose Java FX with Java as the Language  and Maven as the build System
-   ![[Pasted image 20241103213126.png]]
+
+![Alt text](image8.png)
+
    Set it up similarly and click next
    - Select what you feel is important(this window does not matter) then click create
-   ![[Pasted image 20241103213345.png]]
+![Alt text](image9.png)
+
 	You should see a popup at the bottom left saying load maven dependencies or something similar click it and allow them to load , its like 300MB
 	<h3>Let us set up the postgres Driver</h3>
 	Remember in the set up when I asked you to select a driver for postgres when installing it, this is where it comes in, Don't worry if you did not install it before we can do it now from [Here](https://jdbc.postgresql.org/)
 
 	- Click File then Project Structure
-	![[Pasted image 20241103213712.png]]
+![Alt text](image5.png)
+
 - Go to libraries and select the + sign
-  ![[Pasted image 20241103213814.png]]
+  ![Alt text](image8.png)
+
   - Then if you want to navigate to where the postgres.jar file is located  in
   C:\Program Files\PostgreSQL
    Or if you downloaded it  should be in your downloads
@@ -145,12 +145,16 @@ You may get some errors with the imports to fix this add  these to
 - module-info.java file under the other require statements
   ```Java
   requires java.sql;
-```
+
 If you add this and it does not work Click the m on the side
-![[Pasted image 20241103214944.png]]Execure Maven Goal as shown
-![[Pasted image 20241103215028.png]]
+![Alt text](image12.png)
+
+Execute Maven Goal as shown
+![Alt text](image13.png)
+
 Run Maven Clean install
-![[Pasted image 20241103215133.png]]
+![Alt text](image14.png)
+
 It should work
 
 If you wish to have all the imports and default configuration  you can copy the pom.xml file and the module-info.java file from this repository onto your project and run  the mvn clean install command
@@ -172,12 +176,9 @@ The Model contains 2 files one for the shape of the data and one for interacting
 - Create a Class called Student in that file this will define the data
 - Have all the attributes in the database along with the set and get method for each and every one of the attributes you have defined. Also have a constructor
    ```Java
-
-package com.lastname.sufeeds.models;
-
-import java.time.LocalDateTime;
-
-public class Student {
+  package com.lastname.sufeeds.models;
+  import java.time.LocalDateTime;
+  public class Student {
     private Integer studentId;
     private String fullName;
     private String email;
@@ -211,7 +212,7 @@ public class Student {
 
     public LocalDateTime getRegistrationDate() { return registrationDate; }
     public void setRegistrationDate(LocalDateTime registrationDate) { this.registrationDate = registrationDate; }
-}
+  }
 ```
 
 ```Java
